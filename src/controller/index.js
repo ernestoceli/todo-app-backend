@@ -1,4 +1,9 @@
-const UserController = require('./userController');
+const UserController = require("./userController");
+const TaskController = require("./taskController");
+const CollectionController = require("./collectionController");
+
 module.exports = {
-  UserController
+  UserController,
+  TaskController,
+  CollectionController,
 };
