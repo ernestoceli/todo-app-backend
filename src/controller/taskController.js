@@ -66,3 +66,16 @@ exports.searchTask = (req, res) => {
       res.status(500).json(error);
     });
 };
+
+exports.deleteByCollectionId = (req, res) => {
+  const query = req.body;
+  Task.deleteMany(query)
+    .then((task) => {
+      res
+        .status(200)
+        .json({ message: `Tasks with parentId: ${task.parentCollection} has been deleted` });
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+    });
+};

@@ -21,6 +21,20 @@ exports.findAllCollections = (req, res) => {
     });
 };
 
+exports.searchChildren = (req, res) => {
+  const query = req.body;
+  Collection.find(query)
+    .populate("numTasks")
+    .exec()
+    .then((collection) => {
+      console.log(collection);
+      res.status(200).json(collection);
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+    });
+};
+
 exports.findOneCollection = (req, res) => {
   const id = req.params.id;
   Collection.findById(id)

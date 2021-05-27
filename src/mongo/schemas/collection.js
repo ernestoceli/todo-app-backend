@@ -10,6 +10,13 @@ const schema = new mongoose.Schema(
   { timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" } }
 );
 
+schema.virtual("numTasks", {
+  ref: "Task",
+  localField: "_id",
+  foreignField: "parentCollection",
+  count: true,
+});
+
 const Collection = mongoose.model("Collection", schema);
 
 module.exports = Collection;

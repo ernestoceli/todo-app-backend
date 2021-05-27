@@ -7,6 +7,8 @@ TaskRouter.post("/", TaskController.createTask);
 
 TaskRouter.get("/", TaskController.findAllTasks);
 
+TaskRouter.delete("/", TaskController.deleteByCollectionId);
+
 TaskRouter.get("/:id", TaskController.findOneTask);
 
 TaskRouter.post("/search", TaskController.searchTask);
